@@ -1,0 +1,105 @@
+.wrapper
+  padding 1u 1u
+  flex 1
+  flex-basis auto
+  min-width 200px
+  width 100%
+  align-items center
+  padding 2u
+  +tablet()
+    padding 4u
+
+.top
+  flex-direction row
+  margin-bottom 2u
+  +tablet()
+    font-size 3u
+    margin-bottom 3u
+  +desktop()
+    font-size 4u
+    margin-bottom 4u
+
+.name, .order
+  font-size inherit
+
+.order
+  opacity 0.9
+  margin-left 1u
+
+.middle
+  width 100%
+  justify-content space-between
+  +desktop()
+    flex-direction row
+
+.avatar
+  // width auto
+  margin-bottom 2u
+  align-items center
+  background #F2F2F2
+  +desktop()
+    width 30%
+
+.avatarImg
+  width 20u
+  height 20u
+  +tablet()
+    width 30u
+    height 30u
+
+.right
+  +desktop()
+    width 60%
+
+.additionalInfo
+  // overflow hidden
+  margin-bottom 2u
+  // width 100%
+
+.additionalInfoTxt, .abilitiesTxt
+  // text-align center
+  +tablet()
+    font-size 2.5u
+  +desktop()
+    font-size 3u
+
+.typesLabel, .abilitiesLabel
+  +tablet()
+    font-size 2u
+  +desktop()
+    font-size 2.5u
+
+.types
+  align-items flex-start
+  margin-bottom 2u
+  // flex-direction row
+
+.typesLabel
+  margin-bottom 1u
+
+.tag
+  margin-right 1u
+  &.last
+    margin-right 0
+
+.abilities
+  margin-bottom 2u
+
+.abilitiesLabel
+  display block
+  margin-bottom 1u
+
+.buttons
+  flex-direction row
+  justify-content center
+  margin-top 1u
+  +tablet()
+    margin-top 2u
+  +desktop()
+    margin-top 3u
+    justify-content flex-start
+
+.btn
+  &.last
+    margin-left 2u
+  // margin 1u

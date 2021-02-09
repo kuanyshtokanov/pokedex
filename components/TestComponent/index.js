@@ -4,9 +4,9 @@ import {
   useDoc,
   useApi
 } from 'startupjs'
-import axios from 'axios'
 import './index.styl'
 import { Div, Span, Button, Br, Row, Card } from '@startupjs/ui'
+import axios from 'axios'
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 export default observer(function TestComponent ({ style }) {
