@@ -12,7 +12,7 @@ export default observer(function PHome () {
   return pug`
     ScrollView.root
       Content(width='desktop')
-        Div.section
+        Div.section.first
           PokemonSearch
         Portal.Provider
           Div.section

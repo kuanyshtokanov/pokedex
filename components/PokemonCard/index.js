@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'react-native'
-import { useHistory } from 'react-router-dom'
+import { emit } from 'startupjs'
 import { Div, Span, Avatar, Card, Tag } from '@startupjs/ui'
 
 import { POKEMON_TYPES } from '../../const'
@@ -9,16 +9,14 @@ import './index.styl'
 const PokemonCard = ({
   data: { id, name, imageUrl, order, types, abilities, additionalInfo }
 }) => {
-  const history = useHistory()
-
   const onCardClick = () => {
     console.log('Card ' + name + ' clicked')
-    history.push('/pokemon/' + id)
+    emit('url', '/pokemon/' + id)
   }
 
   return pug`
     Card.wrapper(onPress=onCardClick)
-      Div.cardItem
+      Div.cardItem.first
         Avatar.avatar( size='xxl' src=imageUrl )
       Div.cardItem
         Span.order='#'+order
@@ -28,7 +26,7 @@ const PokemonCard = ({
         if types
           Div.types
             each type, index in types
-              Tag.tag(styleName=[{last: index===types.length-1}] key=index style=({ backgroundColor: (POKEMON_TYPES.find(t=> t.name === type) || []).color })) #{type.toUpperCase()}
+              Tag.tag(styleName=[{first: index===0}] key=index style=({ backgroundColor: (POKEMON_TYPES.find(t=> t.name === type) || []).color })) #{type.toUpperCase()}
       Div.cardItem
         Span=additionalInfo
       Div.cardItem

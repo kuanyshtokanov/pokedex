@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { observer, useValue, useDoc, model } from 'startupjs'
+import { observer, useValue, useDoc, model, emit } from 'startupjs'
 import { Div, Button, Tag, TextInput, NumberInput, Multiselect, Portal, Alert } from '@startupjs/ui'
 
 import './index.styl'
@@ -26,7 +25,6 @@ const PokemonForm = observer((pokemon) => {
   const [alertField, setAlertField] = useState('')
   const [pokemonData] = useDoc('pokemons', pokemon.id)
   const [formValues, $formValues] = useValue(pokemonData ? { ...pokemonData } : {})
-  const history = useHistory()
 
   const checkValidation = () => {
     return requiredFields.some(field => {
@@ -43,7 +41,7 @@ const PokemonForm = observer((pokemon) => {
       } else {
         await model.add('pokemons', formValues)
       }
-      history.push('/')
+      emit('url', '/')
     }
   }
 
@@ -62,7 +60,7 @@ const PokemonForm = observer((pokemon) => {
       Portal.Provider
         if alertField
           Alert(variant='error' label=alertField)
-        TextInput.formItem(
+        TextInput.formItem.first(
           label='Name'
           placeholder='Name'
           onChangeText=setFormValue('name')

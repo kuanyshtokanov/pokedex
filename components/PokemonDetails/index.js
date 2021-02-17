@@ -1,6 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { model } from 'startupjs'
+import { model, emit } from 'startupjs'
 import { Div, Span, Avatar, Card, Tag, Button } from '@startupjs/ui'
 
 import { POKEMON_TYPES } from '../../const'
@@ -10,14 +9,12 @@ const PokemonCard = ({
   data: { id, name, imageUrl, order, types, abilities, additionalInfo },
   detailForm
 }) => {
-  const history = useHistory()
-
   const onEditClick = () => {
-    history.push('/pokemon/form/edit/' + id)
+    emit('url', '/pokemon/form/edit/' + id)
   }
 
   const onDeleteClick = async () => {
-    history.push('/')
+    emit('url', '/')
     await model.del('pokemons.' + id)
   }
 
@@ -37,7 +34,7 @@ const PokemonCard = ({
             Div.types
               Span.typesLabel='Types:'
               each type, index in types
-                Tag.tag(styleName=[{last: index===types.length-1}] key=index style=({ backgroundColor: (POKEMON_TYPES.find(t=> t.name === type) || []).color })) #{type.toUpperCase()}
+                Tag.tag(styleName=[{first: index===0}] key=index style=({ backgroundColor: (POKEMON_TYPES.find(t=> t.name === type) || []).color })) #{type.toUpperCase()}
           Div.abilities
             Span.abilitiesLabel='Abilities:'
             Span.abilitiesTxt=abilities
