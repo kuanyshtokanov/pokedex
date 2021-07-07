@@ -5,8 +5,18 @@ export default (components = {}) => [
     component: components.PHome
   },
   {
-    path: '/about',
+    path: '/pokemon/:pokemonId',
     exact: true,
-    component: components.PAbout
+    component: components.PokemonDetailsPage
+  },
+  {
+    path: '/pokemon/form/new',
+    exact: true,
+    component: components.PokemonFormPage
+  },
+  {
+    path: '/pokemon/form/edit/:pokemonId',
+    exact: true,
+    component: components.PokemonFormPage
   }
 ]

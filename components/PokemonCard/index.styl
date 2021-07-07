@@ -1,0 +1,47 @@
+.wrapper
+  flex 1
+  flex-basis auto
+  min-width 200px
+  width 100%
+  align-items center
+  margin 2u 1u
+  justify-content space-between
+  +tablet()
+    max-width calc(50% - 2u)
+  +desktop()
+    max-width calc(33% - 2u)
+    
+.cardItem
+  margin-top 1u
+  width 100%
+  align-items center
+  overflow hidden
+  +tablet()
+    margin-top 2u
+  &.first
+    margin-top 0
+
+.avatar
+  width 25u
+  height 25u
+  +tablet()
+    width 30u
+    height 30u
+
+.types
+  flex-direction row
+
+.tag
+  margin-left 1u
+  &.first
+    margin-left 0
+
+.abilities
+  overflow hidden
+  width 80%
+
+.abilitiesTxt
+  text-align center
+
+.buttons
+  flex-direction row
